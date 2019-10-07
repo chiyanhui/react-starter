@@ -1,15 +1,13 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-process.env.BABEL_ENV = 'production';
+const paths = require('./paths');
+
 module.exports = {
-  mode: 'production',
   entry: {
     app: './src/index.js',
   },
   output: {
-    filename: '[name].[contenthash:8].bundle.js',
-    path: path.resolve(__dirname, '../dist'),
+    path: paths.appDist,
   },
   module: {
     rules: [
@@ -26,12 +24,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
-      favicon: 'public/favicon.ico',
+      template: paths.appHtml,
     }),
   ],
   devServer: {
-    contentBase: './public',
+    contentBase: paths.appPublic,
     port: 8000,
     hot: true,
     open: true,
