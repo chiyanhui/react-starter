@@ -9,6 +9,11 @@ module.exports = {
   output: {
     path: paths.appDist,
   },
+  resolve: {
+    alias: {
+      '@': paths.appSrc,
+    },
+  },
   module: {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
@@ -20,6 +25,7 @@ module.exports = {
           },
         },
       ] },
+      { test: /\.(png|jpe?g|gif|svg)$/, use: ['file-loader'] },
     ],
   },
   plugins: [
