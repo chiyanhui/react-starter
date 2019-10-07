@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "start": "webpack-dev-server --config config/webpack.config.js",
+    "build": "webpack --config config/webpack.config.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
