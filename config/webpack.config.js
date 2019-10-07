@@ -19,7 +19,7 @@ module.exports = {
   plugins: [
   ],
   devServer: {
-    contentBase: './dist',
+    contentBase: './public',
     port: 8000,
     hot: true,
     open: true,
