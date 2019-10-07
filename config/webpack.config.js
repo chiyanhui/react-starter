@@ -18,4 +18,10 @@ module.exports = {
   },
   plugins: [
   ],
+  devServer: {
+    contentBase: './dist',
+    port: 8000,
+    hot: true,
+    open: true,
+  },
 };
