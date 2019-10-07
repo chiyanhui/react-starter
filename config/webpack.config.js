@@ -1,5 +1,6 @@
 const path = require('path');
 
+process.env.BABEL_ENV = 'production';
 module.exports = {
   mode: 'production',
   entry: {
@@ -12,6 +13,9 @@ module.exports = {
   module: {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      { test: /\.(js|jsx)$/, use: ['babel-loader'] },
     ],
   },
+  plugins: [
+  ],
 };
