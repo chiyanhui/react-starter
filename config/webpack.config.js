@@ -10,6 +10,7 @@ module.exports = {
     path: paths.appDist,
   },
   resolve: {
+    extensions: ['.js', '.json', '.jsx'],
     alias: {
       '@': paths.appSrc,
     },

@@ -1,6 +1,6 @@
 import React from 'react';
-import Example from './components/Example.jsx';
-import Hello from './components/Hello.jsx';
+import Example from './components/Example';
+import Hello from './components/Hello';
 
 function App() {
   return (
