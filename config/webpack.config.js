@@ -20,6 +20,22 @@ module.exports = {
       {
         oneOf: [
           { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+          {
+            test: /\.less$/,
+            use: [
+              'style-loader',
+              'css-loader',
+              {
+                loader: 'less-loader',
+                options: {
+                  modifyVars: {
+                    'primary-color': '#D62103',
+                  },
+                  javascriptEnabled: true,
+                },
+              },
+            ]
+          },
           { test: /\.(js|jsx)$/, use: [
             {
               loader: 'babel-loader',
@@ -29,7 +45,7 @@ module.exports = {
                   ['import', {
                     libraryName: 'antd',
                     libraryDirectory: 'es',
-                    style: 'css',
+                    style: true,
                   }],
                 ],
               },
