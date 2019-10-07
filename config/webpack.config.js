@@ -17,16 +17,34 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-      { test: /\.(js|jsx)$/, use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: ['react-app'],
+      {
+        oneOf: [
+          { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+          { test: /\.(js|jsx)$/, use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                presets: ['react-app'],
+              },
+            },
+          ] },
+          {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: 'static/media/[name].[hash:8].[ext]',
+            }
           },
-        },
-      ] },
-      { test: /\.(png|jpe?g|gif|svg)$/, use: ['file-loader'] },
+          {
+            exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+            loader: 'file-loader',
+            options: {
+              name: 'static/media/[name].[hash:8].[ext]',
+            }
+          },
+        ],
+      },
     ],
   },
   plugins: [
