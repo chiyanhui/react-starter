@@ -25,6 +25,13 @@ module.exports = {
               loader: 'babel-loader',
               options: {
                 presets: ['react-app'],
+                plugins: [
+                  ['import', {
+                    libraryName: 'antd',
+                    libraryDirectory: 'es',
+                    style: 'css',
+                  }],
+                ],
               },
             },
           ] },
